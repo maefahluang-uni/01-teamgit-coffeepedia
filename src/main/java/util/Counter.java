@@ -97,7 +97,32 @@ public class Counter {
 
 	// TODO: dev3- count the frequency of word in sentence,
 	// refactor source code from dev1 and dev2
+	// public void countFrequency(String word, String sentence) {
+	//	_ctr = -99;
+	//}
 	public void countFrequency(String word, String sentence) {
-		_ctr = -99;
-	}
+
+        if (word == null || sentence == null) {
+            throw new IllegalArgumentException("Word and sentence must not be null");
+        }
+
+        // Reset the frequency count
+        _ctr = 0;
+
+        // Normalize the word and sentence to lowercase for case-insensitive comparison
+        String normalizedWord = word.toLowerCase();
+        String normalizedSentence = sentence.toLowerCase();
+
+        // Use StringTokenizer to split the sentence into words
+        StringTokenizer tokenizer = new StringTokenizer(normalizedSentence);
+
+        // Count the frequency of the target word
+        while (tokenizer.hasMoreTokens()) {
+            String currentWord = tokenizer.nextToken();
+            if (currentWord.equals(normalizedWord)) {
+                _ctr++;
+            }
+        }
+    }
+
 }
