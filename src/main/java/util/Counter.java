@@ -52,18 +52,52 @@ public class Counter {
 
 	// TODO: dev2- method for increment to closest prime number
 	public void incrementToPrime() {
-		_ctr = -99;
+		//_ctr = -99;
+		_ctr = findNextPrime(_ctr);
 	}
 
 	// TODO: dev2- method for decrement to closest prime number
 	public void decrementToPrime() {
-		_ctr = -99;
+		//_ctr = -99;
+		_ctr = findPreviousPrime(_ctr);
 	}
+
+	// Helper method to find the next prime number
+    private int findNextPrime(int _ctr) {
+        while (true) {
+            _ctr++;
+            if (isPrime(_ctr)) {
+                return _ctr;
+            }
+        }
+    }
+
+    // Helper method to find the previous prime number
+    private int findPreviousPrime(int _ctr) {
+        while (true) {
+            _ctr--;
+            if (isPrime(_ctr)) {
+                return _ctr;
+            }
+        }
+    }
+
+    // Helper method to check if a number is prime
+    private boolean isPrime(int _ctr) {
+        if (_ctr < 2) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(_ctr); i++) {
+            if (_ctr % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 	// TODO: dev3- count the frequency of word in sentence,
 	// refactor source code from dev1 and dev2
 	public void countFrequency(String word, String sentence) {
 		_ctr = -99;
 	}
-
 }
