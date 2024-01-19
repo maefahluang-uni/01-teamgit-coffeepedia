@@ -100,5 +100,4 @@ public class Counter {
 	public void countFrequency(String word, String sentence) {
 		_ctr = -99;
 	}
-
 }
